@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheryl — Super Team</title>
+    <title>Sheryl | Mercedes</title>
     <style>
         :root {
             --teal: #00d2be;
@@ -127,6 +126,60 @@
             color: var(--teal);
             border-color: rgba(0, 210, 190, 0.35);
         }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .activity {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 18px;
+            align-items: center;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px;
+        }
+
+        .activity img {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .activity-date {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--teal);
+        }
+
+        .activity h3 {
+            color: #fff;
+            font-size: 1.05rem;
+            margin: 4px 0;
+        }
+
+        .activity p.desc {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 480px) {
+            .activity {
+                grid-template-columns: 1fr;
+            }
+
+            .activity img {
+                width: 100%;
+                height: 150px;
+            }
+        }
     </style>
 </head>
 
@@ -140,7 +193,7 @@
                 <span class="pit-board">12 · 63</span>
             </div>
             <div>
-                <h1>Sheryl Kimora</h1>
+                <h1>Sheryl</h1>
             </div>
         </header>
 
@@ -157,6 +210,41 @@
             <div class="chips">
                 <span class="chip tech">Java</span>
                 <span class="chip tech">HTML</span>
+            </div>
+        </div>
+
+        <div class="block">
+            <p class="label">Latest Activity</p>
+            <div class="activity-list">
+                <article class="activity">
+                    <img src="assets/sheryl-activity-1.jpg" alt="Watching the race from the grandstand">
+                    <div>
+                        <p class="activity-date">October 2026</p>
+                        <h3>Race day from the grandstand</h3>
+                        <p class="desc">Traded my couch for a grandstand seat. Sachet coffee in hand, best view I have
+                            ever had.</p>
+                    </div>
+                </article>
+
+                <article class="activity">
+                    <img src="assets/sheryl-activity-2.jpg" alt="Helping Kimi carry the trophy">
+                    <div>
+                        <p class="activity-date">October 2026</p>
+                        <h3>Helped Kimi carry the trophy</h3>
+                        <p class="desc">Spent the weekend as Kimi's unofficial trophy bodyguard. Podium photos look
+                            better with me slightly out of frame.</p>
+                    </div>
+                </article>
+
+                <article class="activity">
+                    <img src="assets/sheryl-activity-3.jpg" alt="Kimi helping with an assignment">
+                    <div>
+                        <p class="activity-date">November 2026</p>
+                        <h3>Kimi helped with my assignment</h3>
+                        <p class="desc">He fixed my Java bug in two minutes, then asked why it took me a whole semester.
+                        </p>
+                    </div>
+                </article>
             </div>
         </div>
     </div>
