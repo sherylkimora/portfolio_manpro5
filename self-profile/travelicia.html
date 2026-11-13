@@ -1,13 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Travelicia | Ferrari</title>
+
     <style>
         * {
-            box-sizing: border-box
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -15,186 +19,98 @@
             background: #111;
             color: #f5f5f5;
             font-family: Arial, sans-serif;
-            line-height: 1.6
+            line-height: 1.6;
         }
 
+        /* HEADER */
         header {
             background: #080808;
             border-bottom: 3px solid #e10600;
-            padding: 18px 7%
+            padding: 18px 7%;
         }
 
         .logo {
             font-weight: 900;
             letter-spacing: 2px;
-            font-size: 20px
+            font-size: 20px;
         }
 
         .logo span {
-            color: #e10600
+            color: #e10600;
         }
 
+        /* MAIN */
         main {
-            max-width: 950px;
+            max-width: 1000px;
             margin: 45px auto;
-            padding: 0 22px
+            padding: 0 22px;
         }
 
+        /* HERO SECTION */
         .hero {
             text-align: center;
-            padding: 35px 20px 25px
+            padding: 45px 20px 50px;
+            background: linear-gradient(
+                135deg,
+                #350707,
+                #111,
+                #260505
+            );
+            border-radius: 12px;
+            margin-bottom: 55px;
         }
 
         .label {
             color: #ff514a;
             letter-spacing: 3px;
             font-size: 12px;
-            font-weight: bold
+            font-weight: bold;
         }
 
         h1 {
             font-size: clamp(38px, 7vw, 64px);
             line-height: 1.05;
-            margin: 12px 0
+            margin: 12px 0;
         }
 
         h1 span {
-            color: #e10600
+            color: #e10600;
         }
 
         .subtitle {
             color: #aaa;
             margin: 0 auto;
-            max-width: 550px
+            max-width: 550px;
         }
 
+        /* SECTION TITLE */
+        .section-title {
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            margin: 8px 0;
+            font-size: 28px;
+        }
+
+        /* PROFILE */
         .profile {
             display: grid;
             grid-template-columns: 260px 1fr;
             gap: 28px;
             align-items: center;
-            margin: 30px 0
-        }
-
-        .photo {
-            height: 270px;
-            border-radius: 12px;
-            background: linear-gradient(145deg, #e10600, #710000);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            border: 1px solid #ff514a
-        }
-
-        .photo .emoji {
-            font-size: 95px
-        }
-
-        .photo small {
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-top: 8px
-        }
-
-        .info {
-            background: #1b1b1b;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 25px
-        }
-
-        h2 {
-            margin: 0 0 16px;
-            color: #fff;
-            font-size: 23px
-        }
-
-        .detail {
-            margin: 13px 0;
-            color: #ccc
-        }
-
-        .detail b {
-            color: #ff514a;
-            display: block;
-            font-size: 12px;
-            letter-spacing: 1px
-        }
-
-        .tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 8px
-        }
-
-        .tag {
-            background: #321313;
-            border: 1px solid #762020;
-            color: #ffd6d4;
-            border-radius: 20px;
-            padding: 5px 11px;
-            font-size: 13px
-        }
-
-        section {
-            margin-top: 25px
-        }
-
-        .activity {
-            background: #1b1b1b;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 24px
-        }
-
-        .activity-photo {
-            height: 170px;
-            background: linear-gradient(135deg, #5d0808, #242424);
-            display: grid;
-            place-items: center;
-            border-radius: 8px;
-            font-size: 65px;
-            margin: 12px 0
-        }
-
-        button {
-            background: #e10600;
-            border: 0;
-            color: white;
-            padding: 12px 18px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer
-        }
-
-        button:hover {
-            background: #ff3028
-        }
-
-        footer {
-            text-align: center;
-            color: #777;
-            border-top: 1px solid #333;
-            padding: 25px;
-            font-size: 12px;
-            margin-top: 55px
-        }
-
-        .profile {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 28px;
-            align-items: center;
-            margin: 30px 0;
+            margin: 30px 0 65px;
         }
 
         .photo {
             width: 260px;
             height: 270px;
             border-radius: 12px;
-            background: linear-gradient(145deg, #e10600, #710000);
+            background: linear-gradient(
+                145deg,
+                #e10600,
+                #710000
+            );
             display: flex;
             align-items: center;
             justify-content: center;
@@ -210,46 +126,391 @@
             display: block;
         }
 
-        @media(max-width:650px) {
+        .photo small {
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        .info {
+            background: #1b1b1b;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .info h2 {
+            margin: 0 0 16px;
+            color: #fff;
+            font-size: 23px;
+        }
+
+        .detail {
+            margin: 13px 0;
+            color: #ccc;
+        }
+
+        .detail b {
+            color: #ff514a;
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* SKILLS */
+        .skills-section {
+            margin: 65px 0;
+            padding: 35px;
+            background: #1b1b1b;
+            border: 1px solid #333;
+            border-radius: 12px;
+        }
+
+        .skill {
+            margin: 22px 0;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: #383838;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                #8d0000,
+                #e10600,
+                #ff514a
+            );
+            border-radius: 20px;
+        }
+
+        /* ACTIVITIES - CYCLE 2 */
+        .activities-section {
+            margin: 75px 0;
+        }
+
+        .activities-intro {
+            color: #aaa;
+            max-width: 650px;
+            margin-bottom: 28px;
+        }
+
+        .activities {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .activity {
+            background: #1b1b1b;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 22px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .activity:hover {
+            transform: translateY(-6px);
+            border-color: #e10600;
+            box-shadow: 0 8px 20px #e1060020;
+        }
+
+        .activity-icon {
+            height: 115px;
+            background: linear-gradient(
+                135deg,
+                #5d0808,
+                #242424
+            );
+            border-radius: 9px;
+            display: grid;
+            place-items: center;
+            font-size: 55px;
+            margin-bottom: 18px;
+        }
+
+        .activity h3 {
+            color: #ff514a;
+            margin: 8px 0;
+            font-size: 18px;
+        }
+
+        .activity p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #333;
+            padding: 25px;
+            font-size: 12px;
+            margin-top: 65px;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 700px) {
+
             .profile {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
             }
 
             .photo {
-                height: 220px
+                width: 100%;
+                max-width: 300px;
+                margin: auto;
             }
 
-            .info {
-                padding: 20px
+            .activities {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-section {
+                padding: 22px;
+            }
+
+            .hero {
+                padding: 35px 15px;
             }
         }
+
     </style>
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
-        <div class="logo">SCUDERIA <span>FERRARI</span></div>
+        <div class="logo">
+            SCUDERIA <span>FERRARI</span>
+        </div>
     </header>
+
     <main>
+
+        <!-- HERO SECTION -->
         <div class="hero">
-            <div class="label">FORMULA 1 · TEAM PROFILE</div>
-            <p class="subtitle">A little introduction from a Ferrari fan. Passion, curiosity, and a love for speed.</p>
-        </div>
-        <div class="profile">
-            <div class="photo">
-                <img src="assets-travelicia/snoopy-ferrari.jpg" alt="Snoopy Ferrari">
-                <small>TEAM FERRARI</small>
+
+            <div class="label">
+                FORMULA 1 · TEAM PROFILE
             </div>
-            <div class="info">
-                <h2>Driver Profile</h2>
-                <div class="detail"><b>NAME</b>Travelicia Louisiana</div>
-                <div class="detail"><b>HOBBY</b>Menonton Formula 1, mendengarkan musik, dan memasak.</div>
-                <div class="detail"><b>SKILLS</b>
-                    <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span
-                            class="tag">Java</span><span class="tag">Python</span></div>
+
+            <h1>
+                PASSION. SPEED.
+                <span>FERRARI.</span>
+            </h1>
+
+            <p class="subtitle">
+                A little introduction from a Ferrari fan.
+                Passion, curiosity, and a love for speed.
+            </p>
+
+        </div>
+        <section>
+
+            <div class="section-title">
+                <h2>DRIVER PROFILE</h2>
+            </div>
+
+            <div class="profile">
+
+                <div class="photo">
+
+                    <img
+                        src="../all-assets/assets-travelicia/snoopy-ferrari.jpg"
+                        alt="Snoopy Ferrari">
+
+                    <small>TEAM FERRARI</small>
+
                 </div>
+
+                <div class="info">
+
+                    <div class="detail">
+                        <b>NAME</b>
+                        Travelicia Louisiana
+                    </div>
+
+                    <div class="detail">
+                        <b>HOBBY</b>
+                        Menonton Formula 1,
+                        mendengarkan musik,
+                        dan memasak.
+                    </div>
+
+                    <div class="detail">
+                        <b>FAVOURITE DRIVER</b>
+                        Charles Leclerc · #16
+                    </div>
+
+                    <div class="detail">
+                        <b>FAVOURITE TEAM</b>
+                        Scuderia Ferrari
+                    </div>
+
+                </div>
+
             </div>
-        </div>
+
+        </section>
+
+
+        <!-- MY SKILLS -->
+        <section class="skills-section">
+
+            <div class="section-title">
+
+                <div class="label">
+                    MY ABILITIES
+                </div>
+
+                <h2>MY SKILLS</h2>
+
+                <p class="activities-intro">
+                    Some technologies and programming languages
+                    that I have learned during my studies.
+                </p>
+
+            </div>
+
+            <div class="skill">
+
+                <div class="skill-name">HTML & CSS</div>
+
+                <div class="skill-bar">
+                    <div class="skill-level"
+                        style="width: 70%;">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="skill">
+
+                <div class="skill-name">Data Analyst</div>
+
+                <div class="skill-bar">
+                    <div class="skill-level"
+                        style="width: 60%;">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="skill">
+
+                <div class="skill-name">JAVA</div>
+
+                <div class="skill-bar">
+                    <div class="skill-level"
+                        style="width: 55%;">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="skill">
+
+                <div class="skill-name">PYTHON</div>
+
+                <div class="skill-bar">
+                    <div class="skill-level"
+                        style="width: 55%;">
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="activities-section">
+
+            <div class="section-title">
+
+                <h2>MY RECENT MOMENTS.</h2>
+
+                <p class="activities-intro">
+                    Besides studying technology, I also enjoy
+                    spending my time doing things that make me happy.
+                    Here are some of my favourite activities!
+                </p>
+
+            </div>
+
+
+            <div class="activities">
+
+                <!-- ACTIVITY 1 -->
+                <div class="activity">
+
+                    <div class="activity-icon">
+                        🏎️
+                    </div>
+
+                    <h3>Formula 1</h3>
+
+                    <p>
+                        I love watching Formula 1 races,
+                        following Ferrari, and supporting
+                        my favourite driver, Charles Leclerc.
+                    </p>
+
+                </div>
+
+
+                <!-- ACTIVITY 2 -->
+                <div class="activity">
+
+                    <div class="activity-icon">
+                        🎧
+                    </div>
+
+                    <h3>Listening to Music</h3>
+
+                    <p>
+                        Music is one of my favourite ways
+                        to relax, enjoy my free time,
+                        and improve my mood.
+                    </p>
+
+                </div>
+
+
+                <!-- ACTIVITY 3 -->
+                <div class="activity">
+
+                    <div class="activity-icon">
+                        🍳
+                    </div>
+
+                    <h3>Cooking</h3>
+
+                    <p>
+                        I enjoy trying different recipes
+                        and making delicious food
+                        in my free time.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 </body>
 
