@@ -371,12 +371,130 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .btn-cobalt {
+            background-color: #0047CC;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-cobalt:hover {
+            background-color: #1A62EB;
+            transform: translateY(-2px);
+        }
+
+        .car-jump-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle, rgba(0, 71, 204, 0.35) 0%, rgba(3, 13, 34, 0.92) 80%);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .car-jump-overlay.active {
+            display: flex;
+            animation: screenShake 0.45s ease-in-out;
+        }
+
+        .williams-car-fly {
+            width: 90vw;
+            max-width: 1100px;
+            filter: drop-shadow(0 25px 45px rgba(0, 160, 222, 0.8));
+            /* ease-in: mulai pelan dari kecil di kejauhan, lalu ngebut ke arah layar */
+            animation: carZoomToScreen 1.2s ease-in forwards;
+        }
+
+        @keyframes carZoomToScreen {
+            0% {
+                transform: scale(0.04) translateY(-100px);
+                opacity: 0;
+            }
+            20% {
+                transform: scale(0.12) translateY(-70px);
+                opacity: 1;
+            }
+            55% {
+                transform: scale(0.45) translateY(-20px);
+                opacity: 1;
+            }
+            85% {
+                transform: scale(1.25) translateY(10px);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.6) translateY(20px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes screenShake {
+            0%, 100% { transform: translate(0, 0); }
+            20% { transform: translate(-6px, 4px); }
+            40% { transform: translate(6px, -4px); }
+            60% { transform: translate(-4px, -3px); }
+            80% { transform: translate(4px, 3px); }
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(3, 13, 34, 0.85);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-box {
+            background-color: #091738;
+            border: 1px solid #1A2E5A;
+            border-top: 4px solid #0047CC;
+            border-radius: 4px;
+            max-width: 420px;
+            width: 100%;
+            padding: 1.6rem;
+        }
+
+        .modal-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #4D8BFF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-box h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-message {
+            background-color: #030D22;
+            padding: 1rem;
+            border-left: 3px solid #0047CC;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <span class="navbar-brand">Atlassian Williams Racing // Driver Profile</span>
-        <a href="index.html">Back to Paddock</a>
+        <a href="../index.html">Back to Paddock</a>
     </nav>
 
     <header class="hero-banner" id="heroBanner">
@@ -457,6 +575,7 @@
         <div class="latest-info" id="latestInfo">
             <h2>Latest Paddock Activity</h2>
             <p>Off-track downtime between race weekends—from Mobile Legends sessions to catching up on anime.</p>
+            <button class="btn-cobalt" onclick="openSurprise()">Team Radio Surprise</button>
         </div>
 
         <div class="activity-grid">
@@ -479,5 +598,47 @@
             </div>
         </div>
     </section>
+
+    <div class="car-jump-overlay" id="carJumpOverlay">
+        <img src="../all-assets/assets-nona/WilliamsPopup.png" alt="Williams F1 Car" class="williams-car-fly">
+    </div>
+
+    <div class="modal-overlay" id="radioModal">
+        <div class="modal-box">
+            <div class="modal-tag">Pit Wall Radio // Car #284</div>
+            <h3>Incoming Message for Nana</h3>
+            <p class="modal-message" id="surpriseText"></p>
+            <button class="btn-cobalt" onclick="closeSurprise()">Copy That</button>
+        </div>
+    </div>
+
+    <script>
+        const radioMessages = [
+            "Nana, fastest lap in Sector 3! Make sure to push your Git commits before the deadline.",
+            "Box, box, box! Telemetry shows high heart rate—was that the Williams F1 car flying past your screen?",
+            "SQL query executed in 0.02s! Your Python data model just gained 0.4s per lap.",
+            "DRS enabled! Car #284 just hit 340 km/h straight down the main straight.",
+            "Strategy Plan B: Finish one Mobile Legends match and an Attack on Titan episode, then pit for soft tyres."
+        ];
+
+        function openSurprise() {
+            const carOverlay = document.getElementById("carJumpOverlay");
+            const randomIndex = Math.floor(Math.random() * radioMessages.length);
+            document.getElementById("surpriseText").innerText = radioMessages[randomIndex];
+
+            carOverlay.classList.remove("active");
+            void carOverlay.offsetWidth;
+            carOverlay.classList.add("active");
+
+            setTimeout(() => {
+                carOverlay.classList.remove("active");
+                document.getElementById("radioModal").style.display = "flex";
+            }, 1250);
+        }
+
+        function closeSurprise() {
+            document.getElementById("radioModal").style.display = "none";
+        }
+    </script>
 </body>
 </html>
