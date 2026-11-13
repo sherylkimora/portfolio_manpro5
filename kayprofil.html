@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil | 6182401030</title>
+<style>
+  :root { --papaya: #FF8000; --blue: #47C7FC; --carbon: #15151E; --card: #20202C; --muted: #A9A9BC; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, "Segoe UI", sans-serif; background: var(--carbon); color: #F7F7F7; line-height: 1.6; }
+  a { color: inherit; }
+  .wrap { width: min(1000px, 100% - 2rem); margin: auto; }
+  section { padding: 2.5rem 0; }
+  h1, h2, h3 { font-family: Impact, "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: normal; }
+  h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1; }
+  h2 { font-size: 2rem; color: var(--papaya); margin-bottom: 1rem; }
+  h3 { font-size: 1.3rem; color: var(--blue); }
+
+  /* Placeholder gambar: taruh <img> di dalam .ph */
+  .ph { position: relative; display: grid; place-items: center; text-align: center; background: var(--card); color: var(--muted); overflow: hidden; }
+  .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  .top { background: var(--papaya); color: var(--carbon); padding: .7rem 0; font-weight: 600; }
+  .hero { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center; padding: 2.5rem 0; }
+  .hero p { color: var(--muted); margin-top: .5rem; }
+  .number { font-family: Impact, sans-serif; font-size: 6rem; line-height: 1; color: var(--papaya); }
+  .photo { aspect-ratio: 4 / 5; }
+  .car { height: 160px; margin-bottom: 1rem; }
+
+  .alt { background: var(--card); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .box { background: var(--card); padding: 1rem; }
+  .alt .box { background: var(--carbon); }
+  .box p { color: var(--muted); }
+  .skill { margin-top: .8rem; }
+  .skill div { display: flex; justify-content: space-between; }
+  .bar { height: 10px; background: var(--card); margin-top: .2rem; }
+  .bar i { display: block; height: 100%; width: var(--level); background: var(--papaya); }
+  .cars .ph { aspect-ratio: 16 / 9; }
+  footer { background: var(--papaya); color: var(--carbon); padding: 1rem 0; font-weight: 600; }
+  footer .wrap { display: flex; justify-content: space-between; }
+
+  @media (max-width: 700px) { .hero { grid-template-columns: 1fr; } .photo { max-width: 260px; } }
+</style>
+</head>
+<body>
+
+<!-- !!!!!note: nanti href diganti sesuai nama file halaman utama -->
+<header class="top"><div class="wrap"><a href="index.html">&larr; Kembali</a></div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <div class="number">27</div>
+      <h1>Kaylene J Suhardja</h1>
+    </div>
+    <!-- foto diri -->
+    <div class="ph photo"><span>Foto diri</span><img src="../manpro/images/robin.jpg" alt="Picture of my son robin" onerror="this.remove()"></div>
+  </div>
+
+  <!-- Gmbr mobil -->
+  <div class="ph car"><span>Gambar mobil McLaren</span><img src="../manpro/images/mclarencar.png" alt="Mobil McLaren" onerror="this.remove()"></div>
+</main>
+
+<div class="alt"><section class="wrap">
+  <h2>Hobi</h2>
+  <div class="grid">
+    <div class="box"><h3>Theatre</h3><p>et tu brute</p></div>
+    <div class="box"><h3>Read comic books</h3><p>dun dun dun dun ヾ(´〇`)ﾉ BATMAN ♪♪♪</p></div>
+    <div class="box"><h3>Watch films</h3><p>#tisapirateslife #ahoy</p></div>
+  </div>
+</section></div>
+
+<section class="wrap">
+  <h2>Keahlian</h2>
+  <div class="grid">
+    <div>
+      <h3>Bahasa Pemrograman</h3>
+      <div class="skill"><div><span>Java</span></div><div class="bar"><i style="--level:20%"></i></div></div>
+      <div class="skill"><div><span>C++</span></div><div class="bar"><i style="--level:50%"></i></div></div>
+    </div>
+    <div>
+      <h3>Framework &amp; Tools</h3>
+      <div class="skill"><div><span>Figma</span></div><div class="bar"><i style="--level:60%"></i></div></div>
+      <div class="skill"><div><span>Arduino</span></div><div class="bar"><i style="--level:70%"></i></div></div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
