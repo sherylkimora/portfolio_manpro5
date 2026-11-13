@@ -28,11 +28,28 @@
             line-height: 1.6;
             min-height: 100vh;
             padding: 24px;
+            overflow-x: hidden;
         }
 
         a {
             color: inherit;
             text-decoration: none;
+        }
+
+        /* Background glow mengikuti kursor */
+        .glow {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 30%), rgba(0, 210, 190, 0.1), transparent 60%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            margin: 0 auto;
         }
 
         .back {
@@ -42,11 +59,6 @@
 
         .back:hover {
             color: var(--teal);
-        }
-
-        .container {
-            max-width: 640px;
-            margin: 0 auto;
         }
 
         .header {
@@ -171,6 +183,145 @@
             font-size: 0.88rem;
         }
 
+        /* Pet */
+        .pets {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .pet {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+
+        .pet:hover {
+            border-color: rgba(0, 210, 190, 0.4);
+        }
+
+        .pet img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pet span {
+            display: block;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .pet.bounce {
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-12px);
+            }
+
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        /* Tombol kejutan */
+        .surprise {
+            text-align: center;
+            margin: 8px 0 48px;
+        }
+
+        .surprise-btn {
+            font: inherit;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--bg);
+            background: var(--teal);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .surprise-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0, 210, 190, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 10;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-box {
+            position: relative;
+            background: var(--panel);
+            border: 1px solid rgba(0, 210, 190, 0.35);
+            border-radius: 14px;
+            padding: 36px 28px;
+            max-width: 360px;
+            text-align: center;
+            animation: pop 0.3s ease;
+        }
+
+        .modal-emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-text {
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 6px;
+            right: 12px;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         @media (max-width: 480px) {
             .activity {
                 grid-template-columns: 1fr;
@@ -180,13 +331,19 @@
                 width: 100%;
                 height: 150px;
             }
+
+            .pets {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
+    <div class="glow" id="glow"></div>
+
     <div class="container">
-        <a href="index.html" class="back">← Back to list</a>
+        <a href="../index.html" class="back">← Back to list</a>
 
         <header class="header">
             <div class="avatar-wrap">
@@ -218,10 +375,11 @@
             <p class="label">Latest Activity</p>
             <div class="activity-list">
                 <article class="activity">
-                    <img src="../all-assets/assets-sheryl/sheryl-activity-1.jpg" alt="Watching the race from the grandstand">
+                    <img src="../all-assets/assets-sheryl/sheryl-activity-1.jpg"
+                        alt="Watching the race from the grandstand">
                     <div>
                         <p class="activity-date">October 2026</p>
-                        <h3>Race day from the grandstand</h3>
+                        <h3>Race day from the Italy</h3>
                         <p class="desc">Traded my couch for a grandstand seat. Sachet coffee in hand, best view I have
                             ever had.</p>
                     </div>
@@ -248,7 +406,83 @@
                 </article>
             </div>
         </div>
+
+        <div class="block">
+            <p class="label">Favorite Pets</p>
+            <div class="pets">
+                <div class="pet" tabindex="0">
+                    <img src="../all-assets/assets-sheryl/pet-cat.jpeg" alt="Eong (cat)">
+                    <span>My cat. Judges every race from the sofa.</span>
+                </div>
+                <div class="pet" tabindex="0">
+                    <img src="../all-assets/assets-sheryl/pet-dog.jpeg" alt="Pulung (dog)">
+                    <span>My dog. Always ready for a victory lap.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="surprise">
+            <button id="surpriseBtn" class="surprise-btn">Click for a surprise 🏁</button>
+        </div>
     </div>
+
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true">
+            <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+            <p class="modal-emoji" id="modalEmoji"></p>
+            <p class="modal-text" id="modalText"></p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Glow background mengikuti kursor
+        const glow = document.getElementById("glow");
+        document.addEventListener("mousemove", (e) => {
+            glow.style.setProperty("--mx", e.clientX + "px");
+            glow.style.setProperty("--my", e.clientY + "px");
+        });
+
+        // 2. Pet melompat saat diklik
+        document.querySelectorAll(".pet").forEach((pet) => {
+            pet.addEventListener("click", () => {
+                pet.classList.remove("bounce");
+                void pet.offsetWidth; // restart animasi
+                pet.classList.add("bounce");
+            });
+        });
+
+        // 3. Tombol kejutan: fun fact acak
+        const surprises = [
+            {emoji: "🏎️", text: "Lewis asked me to pick his race car. I picked the one with the cat sticker. He still uses it."},
+            {emoji: "🏆", text: "I held George's umbrella in a downpour. He's been asking me to be his pit crew ever since."},
+            {emoji: "☕", text: "I've been to so many paddock coffee runs that the mechanics made me an honorary team member."},
+            {emoji: "🐱", text: "My cat has seen more Grand Prix races than most fans. Still no idea who's winning."},
+            {emoji: "🎬", text: "I gave Kimi a movie recommendation on a long flight. Now he won't stop quoting it."},
+            {emoji: "🍕", text: "I'm the team's official pizza taster. Quality control is a very serious job."},
+        ];
+
+        const modal = document.getElementById("modal");
+        const modalEmoji = document.getElementById("modalEmoji");
+        const modalText = document.getElementById("modalText");
+
+        function openModal() {
+            const pick = surprises[Math.floor(Math.random() * surprises.length)];
+            modalEmoji.textContent = pick.emoji;
+            modalText.textContent = pick.text;
+            modal.classList.add("open");
+            modal.setAttribute("aria-hidden", "false");
+        }
+
+        function closeModal() {
+            modal.classList.remove("open");
+            modal.setAttribute("aria-hidden", "true");
+        }
+
+        document.getElementById("surpriseBtn").addEventListener("click", openModal);
+        document.getElementById("modalClose").addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {if (e.target === modal) closeModal();});
+        document.addEventListener("keydown", (e) => {if (e.key === "Escape") closeModal();});
+    </script>
 </body>
 
 </html>
