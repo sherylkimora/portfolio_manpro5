@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelicia | Ferrari</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: #111;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            line-height: 1.6
+        }
+
+        header {
+            background: #080808;
+            border-bottom: 3px solid #e10600;
+            padding: 18px 7%
+        }
+
+        .logo {
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-size: 20px
+        }
+
+        .logo span {
+            color: #e10600
+        }
+
+        main {
+            max-width: 950px;
+            margin: 45px auto;
+            padding: 0 22px
+        }
+
+        .hero {
+            text-align: center;
+            padding: 35px 20px 25px
+        }
+
+        .label {
+            color: #ff514a;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold
+        }
+
+        h1 {
+            font-size: clamp(38px, 7vw, 64px);
+            line-height: 1.05;
+            margin: 12px 0
+        }
+
+        h1 span {
+            color: #e10600
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin: 0 auto;
+            max-width: 550px
+        }
+
+        .profile {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 28px;
+            align-items: center;
+            margin: 30px 0
+        }
+
+        .photo {
+            height: 270px;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #e10600, #710000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid #ff514a
+        }
+
+        .photo .emoji {
+            font-size: 95px
+        }
+
+        .photo small {
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 8px
+        }
+
+        .info {
+            background: #1b1b1b;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px
+        }
+
+        h2 {
+            margin: 0 0 16px;
+            color: #fff;
+            font-size: 23px
+        }
+
+        .detail {
+            margin: 13px 0;
+            color: #ccc
+        }
+
+        .detail b {
+            color: #ff514a;
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1px
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px
+        }
+
+        .tag {
+            background: #321313;
+            border: 1px solid #762020;
+            color: #ffd6d4;
+            border-radius: 20px;
+            padding: 5px 11px;
+            font-size: 13px
+        }
+
+        section {
+            margin-top: 25px
+        }
+
+        .activity {
+            background: #1b1b1b;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px
+        }
+
+        .activity-photo {
+            height: 170px;
+            background: linear-gradient(135deg, #5d0808, #242424);
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            font-size: 65px;
+            margin: 12px 0
+        }
+
+        button {
+            background: #e10600;
+            border: 0;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer
+        }
+
+        button:hover {
+            background: #ff3028
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #333;
+            padding: 25px;
+            font-size: 12px;
+            margin-top: 55px
+        }
+
+        .profile {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 28px;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .photo {
+            width: 260px;
+            height: 270px;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #e10600, #710000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid #ff514a;
+            overflow: hidden;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            display: block;
+        }
+
+        @media(max-width:650px) {
+            .profile {
+                grid-template-columns: 1fr
+            }
+
+            .photo {
+                height: 220px
+            }
+
+            .info {
+                padding: 20px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">SCUDERIA <span>FERRARI</span></div>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="label">FORMULA 1 · TEAM PROFILE</div>
+            <p class="subtitle">A little introduction from a Ferrari fan. Passion, curiosity, and a love for speed.</p>
+        </div>
+        <div class="profile">
+            <div class="photo">
+                <img src="assets-travelicia/snoopy-ferrari.jpg" alt="Snoopy Ferrari">
+                <small>TEAM FERRARI</small>
+            </div>
+            <div class="info">
+                <h2>Driver Profile</h2>
+                <div class="detail"><b>NAME</b>Travelicia Louisiana</div>
+                <div class="detail"><b>HOBBY</b>Menonton Formula 1, mendengarkan musik, dan memasak.</div>
+                <div class="detail"><b>SKILLS</b>
+                    <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span
+                            class="tag">Java</span><span class="tag">Python</span></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
