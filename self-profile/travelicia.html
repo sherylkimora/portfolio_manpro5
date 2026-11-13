@@ -26,6 +26,9 @@
             background: #080808;
             border-bottom: 3px solid #e10600;
             padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -219,18 +222,6 @@
             box-shadow: 0 8px 20px #e1060020;
         }
 
-        .activity-icon {
-            height: 115px;
-            background: linear-gradient(135deg,
-                    #5d0808,
-                    #242424);
-            border-radius: 9px;
-            display: grid;
-            place-items: center;
-            font-size: 55px;
-            margin-bottom: 18px;
-        }
-
         .activity h3 {
             color: #ff514a;
             margin: 8px 0;
@@ -240,16 +231,6 @@
         .activity p {
             color: #aaa;
             font-size: 14px;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            color: #777;
-            border-top: 1px solid #333;
-            padding: 25px;
-            font-size: 12px;
-            margin-top: 65px;
         }
 
         .activity-img {
@@ -269,24 +250,23 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            margin-bottom: 25px;
             transition: color 0.2s ease, transform 0.2s ease;
         }
 
         .back-link:hover {
             color: #dc0000;
-            /* Merah Ferrari saat di-hover (bisa diganti #fff200 untuk kuning) */
             transform: translateX(-3px);
         }
 
         /* Tombol Pemicu Pop-up */
         .radio-trigger-btn {
+            margin-top: 22px;
             background-color: #dc0000;
             color: #ffffff;
             border: 1px solid #fff200;
-            padding: 7px 14px;
-            border-radius: 6px;
-            font-size: 13px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
             transition: transform 0.2s ease, background-color 0.2s ease;
@@ -303,7 +283,6 @@
             position: fixed;
             inset: 0;
             background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(4px);
             justify-content: center;
             align-items: center;
             z-index: 9999;
@@ -321,19 +300,6 @@
             padding: 24px;
             color: #ffffff;
             box-shadow: 0 12px 35px rgba(220, 0, 0, 0.45);
-            animation: modalPop 0.25s ease-out;
-        }
-
-        @keyframes modalPop {
-            from {
-                transform: scale(0.85);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
         }
 
         .modal-top-bar {
@@ -446,7 +412,6 @@
 
 <body>
 
-
     <!-- HEADER -->
     <header>
         <div class="logo">
@@ -474,7 +439,11 @@
                 Passion, curiosity, and a love for speed.
             </p>
 
+            <!-- Tombol Pemicu Pop-up JS -->
+            <button class="radio-trigger-btn" onclick="bukaPopup()">📻 Team Radio Surprise</button>
+
         </div>
+
         <section>
 
             <div class="section-title">
@@ -490,9 +459,7 @@
                     <small>TEAM FERRARI</small>
 
                 </div>
-
                 <div class="info">
-
                     <div class="detail">
                         <b>NAME</b>
                         Travelicia Louisiana
@@ -514,11 +481,8 @@
                         <b>FAVOURITE TEAM</b>
                         Scuderia Ferrari
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
 
@@ -586,42 +550,35 @@
 
         </section>
 
-
         <section class="activities-section">
 
             <div class="section-title">
                 <h2>MY RECENT MOMENTS.</h2>
             </div>
 
-
             <div class="activities">
 
                 <!-- ACTIVITY 1 -->
                 <div class="activity">
-                    <img src="../all-assets/assets-travelicia/snoopy-flag.jpg" alt=Snoopy cheering for Ferrari at F1
-                        Grand Prix" class="activity-img">
+                    <img src="../all-assets/assets-travelicia/snoopy-flag.jpg" alt="Snoopy cheering for Ferrari at F1 Grand Prix" class="activity-img">
                     <h3>Cheering at the F1 Grand Prix</h3>
                     <p>
                         Watching the race from the grandstand with Snoopy
                     </p>
                 </div>
 
-
                 <!-- ACTIVITY 2 -->
                 <div class="activity">
-                    <img src="../all-assets/assets-travelicia/snoopy-nonton.jpg" alt=Watching F1 Race in Singapore"
-                        class="activity-img">
+                    <img src="../all-assets/assets-travelicia/snoopy-nonton.jpg" alt="Watching F1 Race in Singapore" class="activity-img">
                     <h3>Singapore GP Night Race</h3>
                     <p>
                         Watching the iconic F1 night race at Marina Bay, Singapore with Snoopy!
                     </p>
                 </div>
 
-
                 <!-- ACTIVITY 3 -->
                 <div class="activity">
-                    <img src="../all-assets/assets-travelicia/snoopy-riding-ferrari.jpg" alt=Watching F1 Race in
-                        Singapore" class="activity-img">
+                    <img src="../all-assets/assets-travelicia/snoopy-riding-ferrari.jpg" alt="Snoopy riding Ferrari car" class="activity-img">
                     <h3>Riding Ferrari Car</h3>
                     <p>
                         Driving a Ferrari F1 car around the circuit with Snoopy!
@@ -630,29 +587,60 @@
 
             </div>
 
-            <!-- Pop-up Modal Team Radio -->
-            <div id="ferrariModal" class="ferrari-modal" onclick="closeFerrariPopup(event)">
-                <div class="ferrari-modal-content">
-                    <div class="modal-top-bar">
-                        <span class="radio-badge">● SCUDERIA TEAM RADIO • #16</span>
-                        <button class="modal-close-x" onclick="forceClosePopup()">&times;</button>
-                    </div>
-
-                    <h3 id="radioQuoteTitle">"We are checking..."</h3>
-                    <p id="radioQuoteBody">
-                        Engineer: "Copy Travelicia, kami sedang mengecek apakah kodingan kamu bebas bug. Question?"
-                    </p>
-
-                    <div class="modal-actions">
-                        <button class="btn-radio-next" onclick="randomizeRadio()">🔄 Radio Lain</button>
-                        <button class="btn-radio-ok" onclick="forceClosePopup()">Copy That!</button>
-                    </div>
-                </div>
-            </div>
-
         </section>
 
+        <div id="ferrariModal" class="ferrari-modal" onclick="if(event.target === this) tutupPopup()">
+            <div class="ferrari-modal-content">
+                <div class="modal-top-bar">
+                    <span class="radio-badge">● SCUDERIA TEAM RADIO • #16</span>
+                    <button class="modal-close-x" onclick="tutupPopup()">&times;</button>
+                </div>
+
+                <h3 id="radioQuoteTitle">"We are checking..."</h3>
+                <p id="radioQuoteBody">
+                    Engineer: "Copy Travelicia, kami sedang mengecek apakah kodingan kamu bebas bug. Question?"
+                </p>
+                <div class="modal-actions">
+                    <button class="btn-radio-next" onclick="bukaPopup()">🔄 Radio Lain</button>
+                    <button class="btn-radio-ok" onclick="tutupPopup()">Copy That!</button>
+                </div>
+            </div>
+        </div>
+
     </main>
+
+    <script>
+        const pesanRadio = [
+            {
+                judul: '"We are checking..."',
+                isi: 'Pit Wall: "Copy Travelicia, sedang mengecek strategi pit stop Ferrari. Question?"'
+            },
+            {
+                judul: '"Box box! Stay out!"',
+                isi: 'Jangan masuk pit dulu, Charles Leclerc masih memimpin di depan!'
+            },
+            {
+                judul: '"Forza Ferrari! P1!"',
+                isi: 'Selamat! Halaman profil Ferrari kamu berhasil jalan tanpa error!'
+            },
+            {
+                judul: '"No, you will not have the drink!"',
+                isi: 'Fokus presentasi tugas Manajemen Proyek dulu ya!'
+            }
+        ];
+
+        function bukaPopup() {
+            const acak = pesanRadio[Math.floor(Math.random() * pesanRadio.length)];
+            document.getElementById('radioQuoteTitle').innerText = acak.judul;
+            document.getElementById('radioQuoteBody').innerText = acak.isi;
+            document.getElementById('ferrariModal').style.display = 'flex';
+        }
+
+        function tutupPopup() {
+            document.getElementById('ferrariModal').style.display = 'none';
+        }
+    </script>
+
 </body>
 
 </html>
