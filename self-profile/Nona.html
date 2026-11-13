@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nona Andhika Navaldy | Portofolio</title>
+    <title>Nona Andhika Navaldy | Wiliams</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -58,7 +58,7 @@
             position: relative;
             height: 340px;
             background-image: linear-gradient(90deg, rgba(3, 13, 34, 0.35) 0%, rgba(3, 13, 34, 0.88) 70%),
-                              url("assets/Williams.jpg");
+                              url("../all-assets/assets-nona/Williams.jpg");
             background-size: cover;
             background-position: center 80%;
             border-bottom: 3px solid #0047CC;
@@ -241,6 +241,10 @@
             gap: 2rem;
         }
 
+        .hobbies-circle-item:hover {
+            transform: scale(1.06);
+        }
+
         .hobbies-circle-item img {
             width: 100px;
             width: 100px;
@@ -271,6 +275,102 @@
                 text-align: left;
             }
         }
+
+        .latest-section {
+            max-width: 1020px;
+            margin: 3.5rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2.2rem;
+            align-items: start;
+        }
+
+        .latest-info h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 0.6rem;
+        }
+
+        .latest-info p {
+            font-size: 0.9rem;
+            color: #8E9EC2;
+            margin-bottom: 1.2rem;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+
+        .activity-card {
+            background-color: #091738;
+            border: 1px solid #1A2E5A;
+            border-top: 3px solid #0047CC;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-4px);
+            border-color: #4D8BFF;
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 185px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-bottom: 1px solid #1A2E5A;
+        }
+
+        .activity-card-body {
+            padding: 1.1rem;
+        }
+
+        .activity-tag {
+            display: inline-block;
+            background-color: #0047CC;
+            color: #FFFFFF;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-card-body h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: #FFFFFF;
+        }
+
+        .activity-card-body p {
+            font-size: 0.85rem;
+            color: #8E9EC2;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 820px) {
+            .latest-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -291,7 +391,7 @@
 
     <section class="profile-section">
         <div>
-            <img src="assets/Lizard.jpg" alt="Lizard" class="driver-photo-single">
+            <img src="../all-assets/assets-nona/Lizard.jpg" alt="Lizard" class="driver-photo-single">
         </div>
 
         <div class="bio-block">
@@ -332,23 +432,50 @@
 
         <div class="hobbies-grid">
             <div class="hobbies-circle-item">
-                <img src="assets/dance.svg">
+                <img src="../all-assets/assets-nona/dance.svg">
                 <h3>Dancing</h3>
             </div>
 
             <div class="hobbies-circle-item">
-                <img src="assets/games.svg">
+                <img src="../all-assets/assets-nona/games.svg">
                 <h3>Gaming</h3>
             </div>
 
             <div class="hobbies-circle-item">
-                <img src="assets/book.svg">
+                <img src="../all-assets/assets-nona/book.svg">
                 <h3>Reading Novels</h3>
             </div>
 
             <div class="hobbies-circle-item">
-                <img src="assets/headphones.svg">
+                <img src="../all-assets/assets-nona/headphones.svg">
                 <h3>Listening to Music</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="latest-section">
+        <div class="latest-info" id="latestInfo">
+            <h2>Latest Paddock Activity</h2>
+            <p>Off-track downtime between race weekends—from Mobile Legends sessions to catching up on anime.</p>
+        </div>
+
+        <div class="activity-grid">
+            <div class="activity-card">
+                <img src="../all-assets/assets-nona/GameML.jpeg" alt="Mobile Legends Mage Skins">
+                <div class="activity-card-body">
+                    <span class="activity-tag">Gaming // MLBB</span>
+                    <h3>Mage Roster & Promo Diamond Hunt</h3>
+                    <p>Browsing Epic and Create skins in the Land of Dawn—keeping reflexes sharp as a dedicated Mage main.</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="../all-assets/assets-nona/AOT.jpeg" alt="Watching Attack on Titan">
+                <div class="activity-card-body">
+                    <span class="activity-tag">Off-Track Recharge</span>
+                    <h3>Attack on Titan Marathon</h3>
+                    <p>Unwinding between coding sprints by catching up on intense Titan battles from the comfort of my desk.</p>
+                </div>
             </div>
         </div>
     </section>
