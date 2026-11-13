@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -50,12 +49,10 @@
         .hero {
             text-align: center;
             padding: 45px 20px 50px;
-            background: linear-gradient(
-                135deg,
-                #350707,
-                #111,
-                #260505
-            );
+            background: linear-gradient(135deg,
+                    #350707,
+                    #111,
+                    #260505);
             border-radius: 12px;
             margin-bottom: 55px;
         }
@@ -106,11 +103,9 @@
             width: 260px;
             height: 270px;
             border-radius: 12px;
-            background: linear-gradient(
-                145deg,
-                #e10600,
-                #710000
-            );
+            background: linear-gradient(145deg,
+                    #e10600,
+                    #710000);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -185,12 +180,10 @@
 
         .skill-level {
             height: 100%;
-            background: linear-gradient(
-                90deg,
-                #8d0000,
-                #e10600,
-                #ff514a
-            );
+            background: linear-gradient(90deg,
+                    #8d0000,
+                    #e10600,
+                    #ff514a);
             border-radius: 20px;
         }
 
@@ -228,11 +221,9 @@
 
         .activity-icon {
             height: 115px;
-            background: linear-gradient(
-                135deg,
-                #5d0808,
-                #242424
-            );
+            background: linear-gradient(135deg,
+                    #5d0808,
+                    #242424);
             border-radius: 9px;
             display: grid;
             place-items: center;
@@ -261,6 +252,170 @@
             margin-top: 65px;
         }
 
+        .activity-img {
+            width: 100%;
+            max-width: 320px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 12px auto;
+            display: block;
+            border: 2px solid #dc0000;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #9aa0a6;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #dc0000;
+            /* Merah Ferrari saat di-hover (bisa diganti #fff200 untuk kuning) */
+            transform: translateX(-3px);
+        }
+
+        /* Tombol Pemicu Pop-up */
+        .radio-trigger-btn {
+            background-color: #dc0000;
+            color: #ffffff;
+            border: 1px solid #fff200;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .radio-trigger-btn:hover {
+            background-color: #a80000;
+            transform: scale(1.04);
+        }
+
+        /* Latar Belakang Gelap Pop-up */
+        .ferrari-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        /* Kotak Konten Pop-up */
+        .ferrari-modal-content {
+            background-color: #141418;
+            border: 2px solid #dc0000;
+            border-top: 5px solid #fff200;
+            border-radius: 12px;
+            max-width: 420px;
+            width: 100%;
+            padding: 24px;
+            color: #ffffff;
+            box-shadow: 0 12px 35px rgba(220, 0, 0, 0.45);
+            animation: modalPop 0.25s ease-out;
+        }
+
+        @keyframes modalPop {
+            from {
+                transform: scale(0.85);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .radio-badge {
+            background-color: rgba(220, 0, 0, 0.2);
+            color: #fff200;
+            border: 1px solid #dc0000;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.8px;
+        }
+
+        .modal-close-x {
+            background: none;
+            border: none;
+            color: #9aa0a6;
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-close-x:hover {
+            color: #ffffff;
+        }
+
+        .ferrari-modal-content h3 {
+            color: #fff200;
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+
+        .ferrari-modal-content p {
+            color: #d1d5db;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .btn-radio-next {
+            background-color: #222228;
+            color: #ffffff;
+            border: 1px solid #444;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-radio-next:hover {
+            border-color: #fff200;
+        }
+
+        .btn-radio-ok {
+            background-color: #dc0000;
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-radio-ok:hover {
+            background-color: #b00000;
+        }
+
         /* RESPONSIVE */
         @media(max-width: 700px) {
 
@@ -286,17 +441,18 @@
                 padding: 35px 15px;
             }
         }
-
     </style>
 </head>
 
 <body>
+
 
     <!-- HEADER -->
     <header>
         <div class="logo">
             SCUDERIA <span>FERRARI</span>
         </div>
+        <a href="../index.html" class="back-link">&larr; Back to home</a>
     </header>
 
     <main>
@@ -329,9 +485,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="../all-assets/assets-travelicia/snoopy-ferrari.jpg"
-                        alt="Snoopy Ferrari">
+                    <img src="../all-assets/assets-travelicia/snoopy-ferrari.jpg" alt="Snoopy Ferrari">
 
                     <small>TEAM FERRARI</small>
 
@@ -391,8 +545,7 @@
                 <div class="skill-name">HTML & CSS</div>
 
                 <div class="skill-bar">
-                    <div class="skill-level"
-                        style="width: 70%;">
+                    <div class="skill-level" style="width: 55%;">
                     </div>
                 </div>
 
@@ -403,8 +556,7 @@
                 <div class="skill-name">Data Analyst</div>
 
                 <div class="skill-bar">
-                    <div class="skill-level"
-                        style="width: 60%;">
+                    <div class="skill-level" style="width: 60%;">
                     </div>
                 </div>
 
@@ -415,8 +567,7 @@
                 <div class="skill-name">JAVA</div>
 
                 <div class="skill-bar">
-                    <div class="skill-level"
-                        style="width: 55%;">
+                    <div class="skill-level" style="width: 50%;">
                     </div>
                 </div>
 
@@ -427,8 +578,7 @@
                 <div class="skill-name">PYTHON</div>
 
                 <div class="skill-bar">
-                    <div class="skill-level"
-                        style="width: 55%;">
+                    <div class="skill-level" style="width: 55%;">
                     </div>
                 </div>
 
@@ -440,15 +590,7 @@
         <section class="activities-section">
 
             <div class="section-title">
-
                 <h2>MY RECENT MOMENTS.</h2>
-
-                <p class="activities-intro">
-                    Besides studying technology, I also enjoy
-                    spending my time doing things that make me happy.
-                    Here are some of my favourite activities!
-                </p>
-
             </div>
 
 
@@ -456,57 +598,56 @@
 
                 <!-- ACTIVITY 1 -->
                 <div class="activity">
-
-                    <div class="activity-icon">
-                        🏎️
-                    </div>
-
-                    <h3>Formula 1</h3>
-
+                    <img src="../all-assets/assets-travelicia/snoopy-flag.jpg" alt=Snoopy cheering for Ferrari at F1
+                        Grand Prix" class="activity-img">
+                    <h3>Cheering at the F1 Grand Prix</h3>
                     <p>
-                        I love watching Formula 1 races,
-                        following Ferrari, and supporting
-                        my favourite driver, Charles Leclerc.
+                        Watching the race from the grandstand with Snoopy
                     </p>
-
                 </div>
 
 
                 <!-- ACTIVITY 2 -->
                 <div class="activity">
-
-                    <div class="activity-icon">
-                        🎧
-                    </div>
-
-                    <h3>Listening to Music</h3>
-
+                    <img src="../all-assets/assets-travelicia/snoopy-nonton.jpg" alt=Watching F1 Race in Singapore"
+                        class="activity-img">
+                    <h3>Singapore GP Night Race</h3>
                     <p>
-                        Music is one of my favourite ways
-                        to relax, enjoy my free time,
-                        and improve my mood.
+                        Watching the iconic F1 night race at Marina Bay, Singapore with Snoopy!
                     </p>
-
                 </div>
 
 
                 <!-- ACTIVITY 3 -->
                 <div class="activity">
-
-                    <div class="activity-icon">
-                        🍳
-                    </div>
-
-                    <h3>Cooking</h3>
-
+                    <img src="../all-assets/assets-travelicia/snoopy-riding-ferrari.jpg" alt=Watching F1 Race in
+                        Singapore" class="activity-img">
+                    <h3>Riding Ferrari Car</h3>
                     <p>
-                        I enjoy trying different recipes
-                        and making delicious food
-                        in my free time.
+                        Driving a Ferrari F1 car around the circuit with Snoopy!
                     </p>
-
                 </div>
 
+            </div>
+
+            <!-- Pop-up Modal Team Radio -->
+            <div id="ferrariModal" class="ferrari-modal" onclick="closeFerrariPopup(event)">
+                <div class="ferrari-modal-content">
+                    <div class="modal-top-bar">
+                        <span class="radio-badge">● SCUDERIA TEAM RADIO • #16</span>
+                        <button class="modal-close-x" onclick="forceClosePopup()">&times;</button>
+                    </div>
+
+                    <h3 id="radioQuoteTitle">"We are checking..."</h3>
+                    <p id="radioQuoteBody">
+                        Engineer: "Copy Travelicia, kami sedang mengecek apakah kodingan kamu bebas bug. Question?"
+                    </p>
+
+                    <div class="modal-actions">
+                        <button class="btn-radio-next" onclick="randomizeRadio()">🔄 Radio Lain</button>
+                        <button class="btn-radio-ok" onclick="forceClosePopup()">Copy That!</button>
+                    </div>
+                </div>
             </div>
 
         </section>
